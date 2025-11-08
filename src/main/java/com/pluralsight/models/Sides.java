@@ -1,6 +1,6 @@
-package com.pluralsight;
+package com.pluralsight.models;
 
-public class Topping {
+public class Sides {
     // dont know if this will be extending or implimenting to the parent function because toppings comes from sandwhich
     // creating the objects that will be what the topings are
     private String meat;
@@ -8,7 +8,7 @@ public class Topping {
     private String regular;
     private String Sauce;
 
-    public Topping(String meat, String cheese, String regular, String sauce) {
+    public Sides(String meat, String cheese, String regular, String sauce) {
         this.meat = meat;
         this.cheese = cheese;
         this.regular = regular;

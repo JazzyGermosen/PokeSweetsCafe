@@ -1,22 +1,22 @@
-package com.pluralsight;
+package com.pluralsight.models;
 
 public class Order {
-    private String sandwiches;
+    private String platter;
     private String drinks;
     private String sweets;
 
     public Order(String sandwiches, String drinks, String sweets) {
-        this.sandwiches = sandwiches;
+        this.platter = sandwiches;
         this.drinks = drinks;
         this.sweets = sweets;
     }
 
-    public String getSandwiches() {
-        return sandwiches;
+    public String getPlatter() {
+        return platter;
     }
 
-    public void setSandwiches(String sandwiches) {
-        this.sandwiches = sandwiches;
+    public void setPlatter(String platter) {
+        this.platter = platter;
     }
 
     public String getDrinks() {
