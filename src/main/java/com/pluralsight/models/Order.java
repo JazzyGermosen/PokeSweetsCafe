@@ -1,14 +1,22 @@
 package com.pluralsight.models;
 
-public class Order {
+public abstract class Order {
     private String platter;
     private String drinks;
     private String sweets;
+    private String sides;
+    private String name;
+    private String size;
+    private double totalPrice;
 
-    public Order(String sandwiches, String drinks, String sweets) {
-        this.platter = sandwiches;
+    public Order(String platter, String drinks, String sweets, String sides, String name, String size, double totalPrice) {
+        this.platter = platter;
         this.drinks = drinks;
         this.sweets = sweets;
+        this.sides = sides;
+        this.name = name;
+        this.size = size;
+        this.totalPrice = totalPrice;
     }
 
     public String getPlatter() {
@@ -33,5 +41,37 @@ public class Order {
 
     public void setSweets(String sweets) {
         this.sweets = sweets;
+    }
+
+    public String getSides() {
+        return sides;
+    }
+
+    public void setSides(String sides) {
+        this.sides = sides;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

@@ -1,18 +1,25 @@
 package com.pluralsight.models;
 
-public class Sides {
+public class Sides extends Order {
     // dont know if this will be extending or implimenting to the parent function because toppings comes from sandwhich
     // creating the objects that will be what the topings are
     private String meat;
-    private String cheese;
-    private String regular;
-    private String Sauce;
+    private String size;
+    private String curry;
+    private String veggies;
+    private String rice;
+    private double totalPrice;
+    private String name;
 
-    public Sides(String meat, String cheese, String regular, String sauce) {
+    public Sides(String platter, String drinks, String sweets, String sides, String name, String size, double totalPrice, String meat, String curry, String veggies, String rice, double totalprice, String name1) {
+        super(platter, drinks, sweets, sides, name, size, totalPrice);
         this.meat = meat;
-        this.cheese = cheese;
-        this.regular = regular;
-        Sauce = sauce;
+        this.size = size;
+        this.curry = curry;
+        this.veggies = veggies;
+        this.rice = rice;
+        this.totalPrice = totalprice;
+        this.name = name;
     }
 
     public String getMeat() {
@@ -23,27 +30,54 @@ public class Sides {
         this.meat = meat;
     }
 
-    public String getCheese() {
-        return cheese;
+
+    public String getSize() {
+        return size;
     }
 
-    public void setCheese(String cheese) {
-        this.cheese = cheese;
+    public void setSize(String size) {
+        this.size = size;
     }
 
-    public String getRegular() {
-        return regular;
+    public String getCurry() {
+        return curry;
     }
 
-    public void setRegular(String regular) {
-        this.regular = regular;
+    public void setCurry(String curry) {
+        this.curry = curry;
     }
 
-    public String getSauce() {
-        return Sauce;
+    public String getVeggies() {
+        return veggies;
     }
 
-    public void setSauce(String sauce) {
-        Sauce = sauce;
+    public void setVeggies(String veggies) {
+        this.veggies = veggies;
+    }
+
+    public String getRice() {
+        return rice;
+    }
+
+    public void setRice(String rice) {
+        this.rice = rice;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
