@@ -1,28 +1,46 @@
 package com.pluralsight.models;
 
+import java.util.ArrayList;
+
 public class Platter extends MenuItems {
     // for future logic instead of sizes with ints i could do kids, half, and full with pricing that matches
     // a platter does have veggies rice meat and curry but when creatin a new instance of
-    private String veggies;
+    // extra meat rice or veggies
+    private boolean addOn;
     private String rice;
     private String curry;
     private String meat;
+    // ^^ all the things a plate would have
 
-    public Platter(String name, String size, double totalPrice, String veggies, String rice, String curry, String meat) {
+    // list from sides class
+    private ArrayList<Sides> sides = new ArrayList<>();
+
+    public Platter(String name, String size, double totalPrice, boolean addOn, String rice, String curry, String meat) {
         super(name, size, totalPrice);
-        this.veggies = veggies;
+        this.addOn = addOn;
         this.rice = rice;
         this.curry = curry;
         this.meat = meat;
     }
 
-    public String getVeggies() {
-        return veggies;
+    // this method will add a side to the order
+    // am unsure if this needs to be in the order class
+    public void addSide(Sides sides){
+        sides.add(sides);
+        // trying to call from the side class to use in here
     }
 
-    public void setVeggies(String veggies) {
-        this.veggies = veggies;
+
+    public void findPrice(String platterPrice){
+        double basePrice = switch (platterPrice.toLowerCase()){
+            case "kids" -> 6.50;
+            case "half" -> 8.00;
+            case "full" -> 10.50;
+            default -> 0;
+        };;
+        //^ i dont understand why this is needed will ask later
     }
+
 
     public String getRice() {
         return rice;

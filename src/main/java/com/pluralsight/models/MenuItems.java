@@ -14,6 +14,13 @@ public abstract class MenuItems {
         this.totalPrice = totalPrice;
     }
 
+    @Override
+    public String toString() {
+        return name + " (" + size + ") - $" + String.format("%.2f", totalPrice);
+    }
+
+
+    // getter and setter methods
     public String getName() {
         return name;
     }

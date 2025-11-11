@@ -13,6 +13,16 @@ public class Drinks extends MenuItems {
         this.temp = temp;
     }
 
+    public double drinkPrice(String drinkPrice){
+        // price for both regular and jumbo size drinks
+        return switch (drinkPrice.toLowerCase()){
+            case "regular" -> 5.00;
+            case "jumbo" -> 9.50;
+            default -> 0;
+        };
+    }
+
+
     // adding a list of drink items that can be found
 
     public String getFlavor() {
