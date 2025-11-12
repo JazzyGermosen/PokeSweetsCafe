@@ -17,6 +17,14 @@ public class Sides {
         this.meat = meat;
     }
 
+    // create an enum to describe the type of side that it is ( reg , premium ect)
+    // so that when we go to the platter we will have an easier way to tell what it is
+    // enum sidetype ( list of words from sushi egg and regular )
+    // when you make a side object it would have 2 properties
+    // the name of the side and the type of the side and it has to be from the enum that we defined
+    // private toppingtype type;
+    // its going to itterate through the list of side and check the number of sides
+    // once it does know the number of sides it will do the calculations based off of that
 
     public double priceForSide(String sidePrice){
         return switch (sidePrice.toLowerCase()){
