@@ -26,6 +26,7 @@ public class Sides {
     // its going to itterate through the list of side and check the number of sides
     // once it does know the number of sides it will do the calculations based off of that
 
+
     public double priceForSide(String sidePrice){
         return switch (sidePrice.toLowerCase()){
             case "kids" -> 3.00;

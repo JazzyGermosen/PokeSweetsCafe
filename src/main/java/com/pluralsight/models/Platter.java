@@ -36,6 +36,9 @@ public class Platter extends MenuItems {
             default -> 0;
         };;
         //^ i dont understand why this is needed will ask later
+        // the for loop will itterate through the list of sides
+        // inside the loop it will check each sides type and then calculate it based off of that
+
     }
 
 
