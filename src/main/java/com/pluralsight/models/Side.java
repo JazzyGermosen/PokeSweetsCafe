@@ -1,20 +1,16 @@
 package com.pluralsight.models;
 
-public class Sides {
+public class Side extends MenuItems  {
     // dont know if this will be extending or implimenting to the parent function because toppings comes from sandwhich
     // creating the objects that will be what the topings are
    // since sides would be something thats added and seperate i have to figure out a different logic flow for this class
-    private String veggies;
-    private String rice;
-    private String curry;
-    private String meat;
+    private sideType type;
+    private String name;
 
-    public Sides( double totalPrice, String veggies, String rice, String curry, String meat) {
-
-        this.veggies = veggies;
-        this.rice = rice;
-        this.curry = curry;
-        this.meat = meat;
+    public Side(double totalPrice, sideType type, String name) {
+        super(totalPrice);
+        this.type = type;
+        this.name = name;
     }
 
     // create an enum to describe the type of side that it is ( reg , premium ect)
@@ -33,39 +29,30 @@ public class Sides {
             case "full" -> 5.00;
             default -> 0;
         };
+        // method for finding price of side if it is an extra order ??
+    }
+    @Override
+    public String toString(){
+        return type.toString();
     }
 
+        public enum sideType {
 
+        }
 
-    public String getVeggies() {
-        return veggies;
+    public sideType getType() {
+        return type;
     }
 
-    public void setVeggies(String veggies) {
-        this.veggies = veggies;
+    public void setType(sideType type) {
+        this.type = type;
     }
 
-    public String getRice() {
-        return rice;
+    public String getName() {
+        return name;
     }
 
-    public void setRice(String rice) {
-        this.rice = rice;
-    }
-
-    public String getCurry() {
-        return curry;
-    }
-
-    public void setCurry(String curry) {
-        this.curry = curry;
-    }
-
-    public String getMeat() {
-        return meat;
-    }
-
-    public void setMeat(String meat) {
-        this.meat = meat;
+    public void setName(String name) {
+        this.name = name;
     }
 }

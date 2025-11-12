@@ -5,7 +5,7 @@ public class Drinks extends MenuItems {
 
 
     public Drinks(String name, String size, double totalPrice, String flavor, boolean isCarbonated, String temp) {
-        super(name, size, totalPrice);
+        super(totalPrice);
 
     }
 
