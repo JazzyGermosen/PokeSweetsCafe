@@ -9,12 +9,14 @@ public class Sides {
     private String curry;
     private String meat;
 
-    public Sides(String veggies, String rice, String curry, String meat) {
+    public Sides( double totalPrice, String veggies, String rice, String curry, String meat) {
+
         this.veggies = veggies;
         this.rice = rice;
         this.curry = curry;
         this.meat = meat;
     }
+
 
     public double priceForSide(String sidePrice){
         return switch (sidePrice.toLowerCase()){

@@ -2,15 +2,12 @@ package com.pluralsight.models;
 
 public abstract class MenuItems {
 
-    private String name;
-    private String size;
+
     private double totalPrice;
 
 
 
-    public MenuItems(String name, String size, double totalPrice) {
-        this.name = name;
-        this.size = size;
+    public MenuItems( double totalPrice) {
         this.totalPrice = totalPrice;
     }
 

@@ -7,26 +7,23 @@ public class Platter extends MenuItems {
     // a platter does have veggies rice meat and curry but when creatin a new instance of
     // extra meat rice or veggies
     private boolean addOn;
-    private String rice;
-    private String curry;
     private String meat;
+    private String size;
     // ^^ all the things a plate would have
 
     // list from sides class
     private ArrayList<Sides> sides = new ArrayList<>();
 
     public Platter(String name, String size, double totalPrice, boolean addOn, String rice, String curry, String meat) {
-        super(name, size, totalPrice);
+        super( totalPrice);
         this.addOn = addOn;
-        this.rice = rice;
-        this.curry = curry;
         this.meat = meat;
     }
 
     // this method will add a side to the order
     // am unsure if this needs to be in the order class
     public void addSide(Sides sides){
-        sides.add(sides);
+        this.sides.add(sides);
         // trying to call from the side class to use in here
     }
 

@@ -8,7 +8,7 @@ public class Order {
     private ArrayList<MenuItems> items = new ArrayList<>();
 
     public void addItem(MenuItems items){
-        items.add(items);
+        this.items.add(items);
     }
 
     public double totalPrice(){
