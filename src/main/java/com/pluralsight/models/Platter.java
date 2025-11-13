@@ -2,7 +2,7 @@ package com.pluralsight.models;
 
 import java.util.ArrayList;
 
-public class Platter extends MenuItems {
+public class Platter extends MenuItem {
     // for future logic instead of sizes with ints i could do kids, half, and full with pricing that matches
     // a platter does have veggies rice meat and curry but when creatin a new instance of
     // extra meat rice or veggies
@@ -29,6 +29,11 @@ public class Platter extends MenuItems {
 
     }
 
+    public Platter() {
+        super();
+    }
+
+
     public double getPrice(){
         // base price of platter
         // add the price of all the sides to the base price
@@ -52,4 +57,43 @@ public class Platter extends MenuItems {
         // trying to call from the side class to use in here
     }
 
+    public boolean isExtraMeat() {
+        return extraMeat;
+    }
+
+    public void setExtraMeat(boolean extraMeat) {
+        this.extraMeat = extraMeat;
+    }
+
+    public boolean isSpicy() {
+        return isSpicy;
+    }
+
+    public void setSpicy(boolean spicy) {
+        isSpicy = spicy;
+    }
+
+    public String getMeat() {
+        return meat;
+    }
+
+    public void setMeat(String meat) {
+        this.meat = meat;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public ArrayList<Side> getSides() {
+        return sides;
+    }
+
+    public void setSides(ArrayList<Side> sides) {
+        this.sides = sides;
+    }
 }

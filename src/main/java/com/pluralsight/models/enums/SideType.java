@@ -1,11 +1,11 @@
-package com.pluralsight.models;
+package com.pluralsight.models.enums;
 
 public enum SideType {
 
-    CALIFORNIAROLL("California Roll", 5.50),
-    DRAGONROLL("Dragon Roll", 6.50),
-    FRIEDEGG("Fried Egg", 5.50),
-    OMELETTE("Omelette", 6.50);
+    TATSUGIRI("Tatsugiri Roll", 5.50),
+    RHYPERIOR("Rhyperior Roll", 6.50),
+    TORCHI("Torchic Fried Egg", 5.50),
+    VULLABY("Vullaby's Omelette", 6.50);
 
     private final String displayName;
     private final double basePrice;
@@ -24,8 +24,10 @@ public enum SideType {
     }
 
     @Override
-    public String toString(){
-        return displayName + " ($" + String.format("%.2f", basePrice) + ")";
+    public String toString() {
+        return "SideType{" +
+                "displayName='" + displayName + '\'' +
+                ", basePrice=" + basePrice +
+                '}';
     }
-
 }

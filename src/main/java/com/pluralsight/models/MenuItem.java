@@ -1,25 +1,28 @@
 package com.pluralsight.models;
 
-public abstract class MenuItems {
+public abstract class MenuItem {
 
 
     private double totalPrice;
 
 
 
-    public MenuItems( double totalPrice) {
+    public MenuItem(double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public MenuItem() {
+
     }
 
     @Override
     public String toString() {
-        return name + " (" + size + ") - $" + String.format("%.2f", totalPrice);
+        return "MenuItems{" +
+                "totalPrice=" + totalPrice +
+                '}';
     }
 
-
     // getter and setter methods
-
-
     public double getTotalPrice() {
         return totalPrice;
     }
