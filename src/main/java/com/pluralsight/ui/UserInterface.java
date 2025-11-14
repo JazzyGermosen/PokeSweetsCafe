@@ -547,13 +547,12 @@ public class UserInterface {
     public static void CheckOut() {
         // this is the check out method where the user will be asked if they want to be checked out
         // if they click yes then they will be asked they want to use a debit or credit card ( because cha-ching  we got big monies )
-
+        ReceiptWriter writer = new ReceiptWriter();
         // recieve input for yest or no
         // if they say yes then the order disapears
         // if no then return to main menu
         boolean isPichuRunning = true;
         while (isPichuRunning) {
-            ReceiptWriter writer = new ReceiptWriter();
             System.out.println("""
                     would you like check out?
                     
