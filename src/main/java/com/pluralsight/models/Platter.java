@@ -43,14 +43,14 @@ public class Platter extends MenuItem {
                 ", sides=" + sides +
                 '}';
     }
-
-    public double getPrice(){
+    @Override
+    public double getTotalPrice(){
         // base price of platter
         // add the price of all the sides to the base price
         // add fee for extra meat
         // return total
         //iterate through the sides array
-        double currentTotal = this.getTotalPrice();
+        double currentTotal = 0 ;
         for(Side side : sides){
             currentTotal += side.getTotalPrice();
 
@@ -58,7 +58,8 @@ public class Platter extends MenuItem {
         if (extraMeat){
             currentTotal += 2.00;
         }
-        return currentTotal;
+        this.totalPrice += currentTotal;
+        return this.totalPrice;
     }
 
 

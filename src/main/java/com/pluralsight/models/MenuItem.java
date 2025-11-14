@@ -3,7 +3,7 @@ package com.pluralsight.models;
 public abstract class MenuItem {
 
 
-    private double totalPrice;
+    protected double totalPrice;
 
 
 

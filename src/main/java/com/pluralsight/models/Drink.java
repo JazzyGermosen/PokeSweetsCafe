@@ -5,10 +5,15 @@ import com.pluralsight.models.enums.DrinkType;
 public class Drink extends MenuItem {
     // creating the characteristics for drinks
     private DrinkType type;
+    private String size;
+    public Drink( DrinkType type, String size) {
+        super(switch (size.toLowerCase()) {
+            case "kids" -> 3.00;
+            case "Half" -> 5.50;
+            case "Full" -> 8.00;
+            default -> 0;
+        });
 
-    public Drink(double totalPrice, DrinkType type) {
-        super(totalPrice);
-        this.type = type;
     }
 
     @Override

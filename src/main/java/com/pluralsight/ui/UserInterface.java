@@ -182,6 +182,7 @@ public class UserInterface {
     }
 
     public static void AddPlatter() {
+        Platter platter = new Platter();
         boolean isPichuRunning = true;
         while (isPichuRunning) {
             System.out.println("""
@@ -202,17 +203,19 @@ public class UserInterface {
 
             switch (chooseOption) {
                 case 1:
-                    ChooseSize();
-                    break;
+                    ChooseSize(platter);
+                    return;
                 case 2:
-                    ChooseMeat();
-                    break;
+                    ChooseMeat(platter);
+                    return;
                 case 3:
-                    isSpicy();
-                    break;
+                    isSpicy(platter);
+                    return;
                 case 4:
-                    ExtraMeat();
-                    break;
+                    ExtraMeat(platter);
+                    return;
+                case 0:
+                    return;
                 default:
                     System.out.println("Sorry I don't think I quite got that. Please try again");
                     break;
@@ -223,7 +226,7 @@ public class UserInterface {
 
     }
 
-    public static void ChooseSize() {
+    public static void ChooseSize(Platter platter) {
         boolean isPichuRunning = true;
         while (isPichuRunning) {
             System.out.println("""
@@ -232,7 +235,7 @@ public class UserInterface {
                     1) Kids Size
                     2) Half Size 
                     3) Full Size
-                    0) Cancel Order
+                    0) Return to previous menu
                     
                     
                     """);
@@ -244,15 +247,18 @@ public class UserInterface {
             switch (chooseOption) {
                 case 1:
                     Platter kids = new Platter("kids");
-                    break;
+                    System.out.println(" You have Chosen the Kids size!");
+                    return;
                 case 2:
                     Platter half = new Platter("half");
-                    break;
+                    System.out.println(" You have Chosen the half size!");
+                    return;
                 case 3:
                     Platter full = new Platter("full");
+                    System.out.println(" You have Chosen the Full size!");
+                    return;
                 case 0:
-                    isPichuRunning = false;
-                    break;
+                    return;
                 default:
                     System.out.println("Sorry I don't think I quite got that. Please try again");
                     break;
@@ -263,7 +269,7 @@ public class UserInterface {
 
     }
 
-    public static void ChooseMeat() {
+    public static void ChooseMeat(Platter platter) {
         boolean isPichuRunning = true;
         while (isPichuRunning) {
             System.out.println("""
@@ -284,16 +290,15 @@ public class UserInterface {
             switch (chooseMeat) {
                 case 1:
                     PlatterType porkKatsu = PlatterType.PORKKATSU;
-                    break;
+                    return;
                 case 2:
                     PlatterType chickenKatsu = PlatterType.CHICKENKATSU;
-                    break;
+                    return;
                 case 3:
                     PlatterType beefKatsu = PlatterType.BEEFKATSU;
-                    break;
+                    return;
                 case 4:
-                    isPichuRunning = false;
-                    break;
+                    return;
                 default:
                     System.out.println("Sorry I don't think I quite got that. Please try again");
                     break;
@@ -301,7 +306,7 @@ public class UserInterface {
         }
     }
 
-    public static void isSpicy() {
+    public static void isSpicy(Platter platter) {
         System.out.println("""
                 would you like spice?
                 
@@ -315,14 +320,16 @@ public class UserInterface {
         String response = Sweets.nextLine().trim().toLowerCase();
         Sweets.nextLine();
 
-        if (response.equals("yes") || response.equals("y")) {
-
-            System.out.println(" You now have extra meat! ");
-        } else {
-
-            System.out.println(" no extra meat for you! ");
+        switch (response){
+            case "yes":
+            case "y":
+                System.out.println(" You now have Spice! ");
+                return;
+            case "no":
+            case "n":
+                System.out.println(" no spice for you! ");
+                return;
         }
-
 
     }
 
@@ -343,12 +350,17 @@ public class UserInterface {
         String response = Sweets.nextLine().trim().toLowerCase();
         Sweets.nextLine();
 
-        if (response.equals("yes") || response.equals("y")) {
-            platter.setExtraMeat(true);
-            System.out.println(" You now have extra meat! ");
-        } else {
-            platter.setExtraMeat(false);
-            System.out.println(" no extra meat for you! ");
+        switch (response){
+            case "yes":
+            case "y":
+                platter.setExtraMeat(true);
+                System.out.println(" You now have extra meat! ");
+                return;
+            case "no":
+            case "n":
+                platter.setExtraMeat(false);
+                System.out.println(" no extra meat for you! ");
+                return;
         }
 
     }
@@ -375,25 +387,30 @@ public class UserInterface {
             switch (chooseDrink) {
                 case 1:
                     DrinkType gardevoir = DrinkType.GARDEVOIR;
-                    break;
+                    System.out.println(gardevoir + " has been added to your order");
+                    return;
                 case 2:
                     DrinkType sylveon = DrinkType.SYLVEON;
-                    break;
+                    System.out.println(sylveon + " has been added to your order");
+                    return;
                 case 3:
                     DrinkType gengar = DrinkType.GENGAR;
-                    break;
+                    System.out.println(gengar + " has been added to your order");
+                    return;
                 case 4:
                     DrinkType fuecoco = DrinkType.FUECOCO;
-                    break;
+                    System.out.println(fuecoco + " has been added to your order");
+                    return;
                 case 5:
                     DrinkType mimikyu = DrinkType.MIMIKYU;
-                    break;
+                    System.out.println(mimikyu + " has been added to your order");
+                    return;
                 case 6:
                     DrinkType shinx = DrinkType.SHINX;
-                    break;
+                    System.out.println(shinx + " has been added to your order");
+                    return;
                 case 0:
-                    isPichuRunning = false;
-                    break;
+                    return;
                 default:
                     System.out.println("Sorry I don't think I quite got that. Please try again");
                     break;
@@ -426,22 +443,26 @@ public class UserInterface {
             switch (chooseDrink) {
                 case 1:
                     SweetType altartia = SweetType.ALTARIA;
-                    break;
+                    System.out.println(altartia + " has been added to your order");
+                    return;
                 case 2:
                     SweetType pokebawl = SweetType.POKEBAWL;
-                    break;
+                    System.out.println(pokebawl + " has been added to your order");
+                    return;
                 case 3:
                     SweetType oshawott = SweetType.OSHAWOTT;
-                    break;
+                    System.out.println(oshawott + " has been added to your order");
+                    return;
                 case 4:
                     SweetType garchomp = SweetType.GARCHOMP;
-                    break;
+                    System.out.println(garchomp + " has been added to your order");
+                    return;
                 case 5:
-                    SweetType Infernape = SweetType.INFERNAPE;
-                    break;
+                    SweetType infernape = SweetType.INFERNAPE;
+                    System.out.println(infernape + " has been added to your order");
+                    return;
                 case 6:
-                    isPichuRunning = false;
-                    break;
+                    return;
                 default:
                     System.out.println("Sorry I don't think I quite got that. Please try again");
                     break;
@@ -471,16 +492,20 @@ public class UserInterface {
             switch (chooseDrink) {
                 case 1:
                     SideType tatsugiri = SideType.TATSUGIRI;
-                    break;
+                    System.out.println(tatsugiri + " has been added to your order");
+                    return;
                 case 2:
                     SideType rhyperior = SideType.RHYPERIOR;
-                    break;
+                    System.out.println(rhyperior + " has been added to your order");
+                    return;
                 case 3:
                     SideType torchic = SideType.TORCHI;
-                    break;
+                    System.out.println(torchic + " has been added to your order");
+                    return;
                 case 4:
                     SideType vullaby = SideType.VULLABY;
-                    break;
+                    System.out.println(vullaby + " has been added to your order");
+                    return;
                 case 5:
                     isPichuRunning = false;
                     break;
