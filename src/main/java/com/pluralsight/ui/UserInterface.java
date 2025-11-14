@@ -295,12 +295,15 @@ public class UserInterface {
             switch (chooseMeat) {
                 case 1:
                     PlatterType porkKatsu = PlatterType.PORKKATSU;
+                    System.out.println("You chose Pork Katsu!");
                     return;
                 case 2:
                     PlatterType chickenKatsu = PlatterType.CHICKENKATSU;
+                    System.out.println("You chose Chicken Katsu!");
                     return;
                 case 3:
                     PlatterType beefKatsu = PlatterType.BEEFKATSU;
+                    System.out.println("You chose Beef Katsu!");
                     return;
                 case 4:
                     return;
