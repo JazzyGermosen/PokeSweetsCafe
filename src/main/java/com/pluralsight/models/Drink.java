@@ -30,4 +30,12 @@ public class Drink extends MenuItem {
     public void setType(DrinkType type) {
         this.type = type;
     }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
 }

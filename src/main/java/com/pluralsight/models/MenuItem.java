@@ -6,7 +6,6 @@ public abstract class MenuItem {
     protected double totalPrice;
 
 
-
     public MenuItem(double totalPrice) {
         this.totalPrice = totalPrice;
     }
@@ -23,6 +22,7 @@ public abstract class MenuItem {
     }
 
     // getter and setter methods
+
     public double getTotalPrice() {
         return totalPrice;
     }
@@ -30,4 +30,6 @@ public abstract class MenuItem {
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
+
 }
+
