@@ -7,6 +7,7 @@ import com.pluralsight.models.enums.DrinkType;
 import com.pluralsight.models.enums.PlatterType;
 import com.pluralsight.models.enums.SideType;
 import com.pluralsight.models.enums.SweetType;
+import com.pluralsight.util.ReceiptWriter;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -552,7 +553,7 @@ public class UserInterface {
         // if no then return to main menu
         boolean isPichuRunning = true;
         while (isPichuRunning) {
-
+            ReceiptWriter writer = new ReceiptWriter();
             System.out.println("""
                     would you like check out?
                     
@@ -570,6 +571,7 @@ public class UserInterface {
                 case "yes":
                     System.out.println(order.toString());
                     System.out.println(" Your total is " + order.totalPrice());
+                    System.out.println(" Here is your reciept! " + writer.toString());
                     debOrCred();
                     break;
                 case "no":

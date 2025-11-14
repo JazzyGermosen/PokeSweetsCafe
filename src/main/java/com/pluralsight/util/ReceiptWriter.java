@@ -10,12 +10,18 @@ import java.time.format.DateTimeFormatter;
 
 public class ReceiptWriter {
 
+    @Override
+    public String toString() {
+        return "ReceiptWriter{}";
+    }
+
     public static void saveReceipt(Order order) {
 
         // creating the local date time formatter with the local time and date
         LocalDateTime dateTime = LocalDateTime.now();
         DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         String filepath = "C:\\Users\\HP\\Desktop\\receiptfile.txt";
+
 
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filepath))) {
             // instantiated both the buffered writer and file writer
