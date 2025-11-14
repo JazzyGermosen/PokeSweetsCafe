@@ -11,6 +11,16 @@ public class Order {
         this.items = items;
     }
 
+    @Override
+    public String toString() {
+        String reciept = "receipt\n";
+        for (MenuItem food : items){
+            reciept += food.toString() + "\n";
+            reciept += " price: " + food.getTotalPrice();
+        }
+        return reciept;
+    }
+
     public void addItem(MenuItem items){
         // adds item to the items list
         this.items.add(items);
@@ -24,7 +34,7 @@ public class Order {
     }
 
     public void deleteItem(MenuItem item){
-
+        items.remove(items);
     }
 
     public MenuItem getItems(MenuItem item){

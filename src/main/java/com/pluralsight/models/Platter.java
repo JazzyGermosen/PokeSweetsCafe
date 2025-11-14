@@ -33,6 +33,16 @@ public class Platter extends MenuItem {
         super();
     }
 
+    @Override
+    public String toString() {
+        return "Platter{" +
+                "extraMeat=" + extraMeat +
+                ", isSpicy=" + isSpicy +
+                ", meat='" + meat + '\'' +
+                ", size='" + size + '\'' +
+                ", sides=" + sides +
+                '}';
+    }
 
     public double getPrice(){
         // base price of platter

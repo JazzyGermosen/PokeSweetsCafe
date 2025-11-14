@@ -1,5 +1,6 @@
 package com.pluralsight.ui;
 
+import com.pluralsight.models.MenuItem;
 import com.pluralsight.models.Order;
 import com.pluralsight.models.Platter;
 import com.pluralsight.models.enums.DrinkType;
@@ -7,6 +8,7 @@ import com.pluralsight.models.enums.PlatterType;
 import com.pluralsight.models.enums.SideType;
 import com.pluralsight.models.enums.SweetType;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -15,14 +17,21 @@ public class UserInterface {
     public static Scanner Sweets = new Scanner(System.in);
 
     // calling for the orderclass
-    private Order order = new Order();
+    private static Order order = new Order();
 
     public UserInterface() {
 
     }
 
+    public void init() {
+        order = new Order();
+
+    }
+
 
     public void userMenu() {
+
+        init();
 
         System.out.println(" Welcome to the Poke Sweets Cafe! ");
         System.out.println("""
@@ -142,10 +151,7 @@ public class UserInterface {
             // switch statement for the next options
             switch (chooseOption) {
                 case 1:
-                    Platter platter = AddPlatter();
-                    ChooseMeat(platter);
-                    isSpicy(platter);
-                    extraMeat(platter);
+                    AddPlatter();
                     break;
                 case 2:
                     AddDrink();
@@ -175,7 +181,49 @@ public class UserInterface {
 
     }
 
-    public static Platter AddPlatter() {
+    public static void AddPlatter() {
+        boolean isPichuRunning = true;
+        while (isPichuRunning) {
+            System.out.println("""
+                    Please select what you want to do:
+                    
+                    1) Choose Size
+                    2) Choose Meat
+                    3) Choose Spice Level
+                    4) Extra Meat
+                    0) Cancel Order
+                    
+                    
+                    """);
+
+            //asking for user input
+            int chooseOption = Sweets.nextInt();
+            Sweets.nextLine();
+
+            switch (chooseOption) {
+                case 1:
+                    ChooseSize();
+                    break;
+                case 2:
+                    ChooseMeat();
+                    break;
+                case 3:
+                    isSpicy();
+                    break;
+                case 4:
+                    ExtraMeat();
+                    break;
+                default:
+                    System.out.println("Sorry I don't think I quite got that. Please try again");
+                    break;
+            }
+
+
+        }
+
+    }
+
+    public static void ChooseSize() {
         boolean isPichuRunning = true;
         while (isPichuRunning) {
             System.out.println("""
@@ -202,7 +250,7 @@ public class UserInterface {
                     break;
                 case 3:
                     Platter full = new Platter("full");
-                case 4:
+                case 0:
                     isPichuRunning = false;
                     break;
                 default:
@@ -212,10 +260,10 @@ public class UserInterface {
 
 
         }
-        return new Platter();
+
     }
 
-    public static void ChooseMeat(Platter platter) {
+    public static void ChooseMeat() {
         boolean isPichuRunning = true;
         while (isPichuRunning) {
             System.out.println("""
@@ -253,18 +301,38 @@ public class UserInterface {
         }
     }
 
-    public static void isSpicy(Platter platter){
+    public static void isSpicy() {
+        System.out.println("""
+                would you like spice?
+                
+                - Yes!
+                - No!
+                
+                
+                """);
+
+
+        String response = Sweets.nextLine().trim().toLowerCase();
+        Sweets.nextLine();
+
+        if (response.equals("yes") || response.equals("y")) {
+
+            System.out.println(" You now have extra meat! ");
+        } else {
+
+            System.out.println(" no extra meat for you! ");
+        }
 
 
     }
 
-    public static void extraMeat(Platter platter){
+    public static void ExtraMeat(Platter platter) {
         System.out.println("""
                 would you like extra meat?
                 
                 - Yes!
                 - No!
-               
+                
                 
                 """);
 
@@ -275,7 +343,7 @@ public class UserInterface {
         String response = Sweets.nextLine().trim().toLowerCase();
         Sweets.nextLine();
 
-        if (response.equals("yes") || response.equals("y")){
+        if (response.equals("yes") || response.equals("y")) {
             platter.setExtraMeat(true);
             System.out.println(" You now have extra meat! ");
         } else {
@@ -382,56 +450,128 @@ public class UserInterface {
         }
     }
 
-    public static void AddSide () {
-            boolean isPichuRunning = true;
-            while (isPichuRunning) {
-                System.out.println("""
-                        Please Select a Side:
-                        
-                        (1) Tatsugiri Roll
-                        (2) Rhyperior Roll
-                        (3) Torchic's Fried Egg
-                        (4) Vullaby's Omelette
-                        (5) Cancel Order
-                        
-                        """);
+    public static void AddSide() {
+        boolean isPichuRunning = true;
+        while (isPichuRunning) {
+            System.out.println("""
+                    Please Select a Side:
+                    
+                    (1) Tatsugiri Roll
+                    (2) Rhyperior Roll
+                    (3) Torchic's Fried Egg
+                    (4) Vullaby's Omelette
+                    (5) Cancel Order
+                    
+                    """);
 
-                //asking for user input
-                int chooseDrink = Sweets.nextInt();
-                Sweets.nextLine();
+            //asking for user input
+            int chooseDrink = Sweets.nextInt();
+            Sweets.nextLine();
 
-                switch (chooseDrink) {
-                    case 1:
-                        SideType tatsugiri = SideType.TATSUGIRI;
-                        break;
-                    case 2:
-                        SideType rhyperior = SideType.RHYPERIOR;
-                        break;
-                    case 3:
-                        SideType torchic = SideType.TORCHI;
-                        break;
-                    case 4:
-                        SideType vullaby = SideType.VULLABY;
-                        break;
-                    case 5:
-                        isPichuRunning = false;
-                        break;
-                    default:
-                        System.out.println("Sorry I don't think I quite got that. Please try again");
-                        break;
-                }
-
+            switch (chooseDrink) {
+                case 1:
+                    SideType tatsugiri = SideType.TATSUGIRI;
+                    break;
+                case 2:
+                    SideType rhyperior = SideType.RHYPERIOR;
+                    break;
+                case 3:
+                    SideType torchic = SideType.TORCHI;
+                    break;
+                case 4:
+                    SideType vullaby = SideType.VULLABY;
+                    break;
+                case 5:
+                    isPichuRunning = false;
+                    break;
+                default:
+                    System.out.println("Sorry I don't think I quite got that. Please try again");
+                    break;
             }
+
+        }
     }
 
 
-    public static void ItemSummary () {
+    public static void ItemSummary() {
         //  i need to return a list of the items that were selected
-        //
+        System.out.println(order.toString());
 
     }
 
-    public static void CheckOut () {
+    public static void CheckOut() {
+        // recieve input for yest or no
+        // if they say yes then the order disapears
+        // if no then return to main menu
+        boolean isPichuRunning = true;
+        while (isPichuRunning) {
+
+            System.out.println("""
+                    would you like check out?
+                    
+                    - Yes!
+                    - No!
+                    
+                    
+                    """);
+
+
+            String response = Sweets.nextLine().trim().toLowerCase();
+            Sweets.nextLine();
+
+            switch (response) {
+                case "yes":
+                    System.out.println(order.toString());
+                    System.out.println(" Your total is " + order.totalPrice());
+                    debOrCred();
+                    break;
+                case "no":
+                    isPichuRunning = false;
+                    break;
+                default:
+                    System.out.println("Sorry I don't think I quite got that. Please try again");
+                    break;
+            }
+        }
+
+
     }
+
+
+    public static void debOrCred() {
+        System.out.println("""
+                Will that be Debit or credit!
+                
+                - Debit
+                - Credit
+                
+                
+                """);
+
+        String response = Sweets.nextLine().trim().toLowerCase();
+        Sweets.nextLine();
+
+        System.out.println(" Thank you for Shopping at the PokeSweetsCafe ");
+        System.out.println("""
+                
+                ⠀⠀⠀⠀⠀⠀⠀⠠⣄⠀⠀⠀⠀⢀⡠⠤⠤⢄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⢠⠂⠀⠁⠀⠀⠀⠀⢸⠀⠀⠀⡰⠋⠀⠀⠀⠀⠸⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠸⣄⠀⠀⠀⠀⠀⠀⡼⠀⠀⢠⡁⠀⣰⡆⠀⠀⠰⠥⠤⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠈⠑⠢⢤⡀⡠⠊⠀⠀⠀⠀⢧⡀⣿⠃⠀⠀⠔⠀⠀⢀⣀⠉⠳⢄⢠⠔⠂⠒⠦⡀⠀
+                ⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⡸⠁⠀⠀⡎⠀⢠⠊⠀⠀⠑⠄⡄⠫⠀⠀⠀⠀⠸⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⠢⠞⢦⡇⠀⢀⣸⣗⡆⠘⣄⠀⠀⠀⠡⠃⠀⠀⣠⣄⠀⢠⠁
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢫⠀⠀⠀⢣⡄⠀⠈⠉⠀⠤⡀⠁⣆⣦⠀⠀⠀⣎⠛⠃⣠⠎⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢣⡀⠀⠀⢳⡀⠀⢸⠻⢲⣤⠀⠉⢫⠀⠀⢠⠋⠉⠉⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⢄⡀⠀⠑⠢⣈⠂⠔⠁⠀⠀⠘⢀⡴⠋⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡹⠂⠀⠀⠀⠉⠑⠒⢲⠒⠊⠉⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⡖⠦⠊⠣⣴⠁⠀⠀⢀⠄⠀⠀⠀⠸⣄⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⢸⡀⠐⢤⠈⠀⠀⢠⠁⠀⠀⠀⠀⠀⠀⢠⠇⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠳⣀⠀⠙⢂⠀⢘⠀⠀⢴⠀⡄⢀⢠⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠠⠄⡀⠈⠉⠉⠁⠉⠉⠉⠙⠻⢤⣣⢾⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                
+                """);
+
+    }
+
 
 }
