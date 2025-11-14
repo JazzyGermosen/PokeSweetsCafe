@@ -1,6 +1,6 @@
 🍰 PokeSweetsCafe
 
-A whimsical Pokémon-themed café application
+A whimsical Pokémon-themed café application where you can enjoy a refreshing cup of latte or even a plate of curry inspired by your favorite pokemon!
 
 📚 Table of Contents
 
