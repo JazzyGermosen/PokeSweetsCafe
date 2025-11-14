@@ -7,6 +7,9 @@ public class Drink extends MenuItem {
     private DrinkType type;
     private String size;
     public Drink( DrinkType type, String size) {
+        // the super class constructor needs  adouble to function
+        // the switch statement will evaluate to a double
+        // the double is price
         super(switch (size.toLowerCase()) {
             case "kids" -> 3.00;
             case "Half" -> 5.50;
@@ -15,14 +18,14 @@ public class Drink extends MenuItem {
         });
 
     }
-
+    // specific to string method that is for the drink type class
     @Override
     public String toString() {
         return "Drink{" +
                 "type=" + type +
                 '}';
     }
-
+    // getter and setter methods
     public DrinkType getType() {
         return type;
     }

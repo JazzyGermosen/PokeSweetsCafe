@@ -7,6 +7,8 @@ public enum SideType {
     TORCHI("Torchic Fried Egg", 5.50),
     VULLABY("Vullaby's Omelette", 6.50);
 
+
+
     private final String displayName;
     private final double basePrice;
 

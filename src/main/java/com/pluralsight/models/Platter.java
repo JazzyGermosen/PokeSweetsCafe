@@ -32,7 +32,7 @@ public class Platter extends MenuItem {
     public Platter() {
         super();
     }
-
+    // this is the to string that is specific to the platter class
     @Override
     public String toString() {
         return "Platter{" +

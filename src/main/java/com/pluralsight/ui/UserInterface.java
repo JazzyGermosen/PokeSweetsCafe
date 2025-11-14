@@ -25,7 +25,7 @@ public class UserInterface {
 
     public void init() {
         order = new Order();
-
+        //creeating this so that when running the menu it will have all the properties of the order class
     }
 
 
@@ -125,7 +125,7 @@ public class UserInterface {
     }
 
     public static void newOrder() {
-        // the start of a new menu loop
+        // the start of a new menu loop of the new order
         boolean isPichuRunning = true;
         while (isPichuRunning) {
             // printing out the loop statement
@@ -182,11 +182,13 @@ public class UserInterface {
     }
 
     public static void AddPlatter() {
+        // setting a new loop so that the user can choose all the options that they want for their platter
+        // once the user choses an option up untill extra meat it will keep on sending the user back to the same add platter menu
         Platter platter = new Platter();
         boolean isPichuRunning = true;
         while (isPichuRunning) {
             System.out.println("""
-                    Please select what you want to do:
+                    Please complete these next options:
                     
                     1) Choose Size
                     2) Choose Meat
@@ -204,13 +206,13 @@ public class UserInterface {
             switch (chooseOption) {
                 case 1:
                     ChooseSize(platter);
-                    return;
+                    break;
                 case 2:
                     ChooseMeat(platter);
-                    return;
+                    break;
                 case 3:
                     isSpicy(platter);
-                    return;
+                    break;
                 case 4:
                     ExtraMeat(platter);
                     return;
@@ -227,6 +229,8 @@ public class UserInterface {
     }
 
     public static void ChooseSize(Platter platter) {
+        // this is where the user will choose the size that they want
+        // once they chose the size that they want the system will print the item that they chose
         boolean isPichuRunning = true;
         while (isPichuRunning) {
             System.out.println("""
@@ -270,6 +274,7 @@ public class UserInterface {
     }
 
     public static void ChooseMeat(Platter platter) {
+        // this is where the user whille chose the meat that they want
         boolean isPichuRunning = true;
         while (isPichuRunning) {
             System.out.println("""
@@ -307,6 +312,7 @@ public class UserInterface {
     }
 
     public static void isSpicy(Platter platter) {
+        // the user will be asked if they want the dish to be spicy or not
         System.out.println("""
                 would you like spice?
                 
@@ -328,12 +334,16 @@ public class UserInterface {
             case "no":
             case "n":
                 System.out.println(" no spice for you! ");
-                return;
+            default:
+                System.out.println("Sorry I don't think I quite got that. Please try again");
+                break;
         }
 
     }
 
     public static void ExtraMeat(Platter platter) {
+        // the user will be asked if they want extra meat
+        // if they say yes then 2 dolllars will be added to the total as per the method in my platter class
         System.out.println("""
                 would you like extra meat?
                 
@@ -360,12 +370,15 @@ public class UserInterface {
             case "n":
                 platter.setExtraMeat(false);
                 System.out.println(" no extra meat for you! ");
-                return;
+            default:
+                System.out.println("Sorry I don't think I quite got that. Please try again");
+                break;
         }
 
     }
 
     public static void AddDrink() {
+        // this is where the user will be asked to choose the drink that they want
         boolean isPichuRunning = true;
         while (isPichuRunning) {
             System.out.println("""
@@ -422,6 +435,7 @@ public class UserInterface {
     }
 
     public static void AddSweets() {
+        // this is where the user will be asked to choose what type of sweet that they want
         boolean isPichuRunning = true;
         while (isPichuRunning) {
             System.out.println("""
@@ -472,6 +486,7 @@ public class UserInterface {
     }
 
     public static void AddSide() {
+        // this is where the user will be asked to choose a side that they want
         boolean isPichuRunning = true;
         while (isPichuRunning) {
             System.out.println("""
@@ -519,12 +534,16 @@ public class UserInterface {
 
 
     public static void ItemSummary() {
+        // if the user wants to the item summary to be returned this is where it will be displayed
         //  i need to return a list of the items that were selected
         System.out.println(order.toString());
 
     }
 
     public static void CheckOut() {
+        // this is the check out method where the user will be asked if they want to be checked out
+        // if they click yes then they will be asked they want to use a debit or credit card ( because cha-ching  we got big monies )
+
         // recieve input for yest or no
         // if they say yes then the order disapears
         // if no then return to main menu
@@ -551,8 +570,7 @@ public class UserInterface {
                     debOrCred();
                     break;
                 case "no":
-                    isPichuRunning = false;
-                    break;
+                    return;
                 default:
                     System.out.println("Sorry I don't think I quite got that. Please try again");
                     break;

@@ -8,7 +8,7 @@ public enum SweetType {
     GARCHOMP("Garchomp Souffle", 6.50),
     INFERNAPE("Infernape's Firey Brownies", 4.50);
 
-
+    // creating an enum class that will help store the names and the price of all the sweet types that we need
     private final String displayName;
     private final double price;
 

@@ -9,8 +9,10 @@ public class Side extends MenuItem {
     private SideType type;
     private String size;
 
+    // this is the objects that a side class will have
 
     public Side(SideType type, String size) {
+        // this is where the price is stored for the price of the side
         super(switch (size.toLowerCase()){
             case "kids" -> 3.00;
             case "full" -> 5.00;
